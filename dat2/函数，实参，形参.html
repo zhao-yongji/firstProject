@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //函数只要加括号就自执行
+
+        //函数声明
+        fn1(2,3)  //实参
+        function fn1(a,b){ //形参
+            console.log("执行了")
+            console.log(a+b)
+        }
+
+        //带有默认值实参的参数一般不要写在前面
+        function fn3(a,b=2){
+
+        }
+        fn3(1)
+
+        //函数表达式 再不能执行了
+        let fn2 = function(){
+            console.log("跟函数声明的区别")
+        }()
+        // fn2() 报错，不能再执行了
+    </script>
+</body>
+</html>

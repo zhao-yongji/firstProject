@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 600px;
+            height: 400px;
+            margin: 100px auto;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box1"></div>
+    <div id="box2" class="box"></div>
+    <script>
+        let box1 =document.getElementById("box1")
+        let box2 = document.getElementById("box2")
+        box1.onmouseenter =function(){
+            //css样式驼峰法
+            box2.style.backgroundColor = "red";
+        }
+        box1.onmouseleave =function(){
+            box2.style.backgroundColor = "pink";
+        }
+        box1.onmouseenter =function(){
+            //css样式联合写法
+            box1.style.cssText = "width:300px;background-color:red";
+        }
+    </script>
+</body>
+</html>

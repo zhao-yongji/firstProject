@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            width: 300px;
+            padding: 30px 20px;
+        }
+
+        div {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            height: 30px;
+            overflow: hidden;
+            border-bottom: 2px solid green;
+        }
+        li:last-child{
+            border-bottom: none;
+        }
+
+        li.show {
+            height: auto;
+        }
+
+        h3 {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            background-color: pink;
+        }
+
+        input {
+            width: 20%;
+            text-align: center;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <h3>家人</h3>
+            <div>
+                <span>内容1</span>
+                <input type="tutton" value="修改">
+            </div>
+            <div>
+                <span>内容2</span>
+                <input type="tutton" value="修改">
+            </div>
+            <div>
+                <span>内容3</span>
+                <input type="tutton" value="修改">
+            </div>
+            <div>
+                <span>内容4</span>
+                <input type="tutton" value="修改">
+            </div>
+        </li>
+        <li>
+            <h3>同学</h3>
+            <div>
+                <span>内容1</span>
+                <input type="tutton" value="修改">
+            </div>
+            <div>
+                <span>内容2</span>
+                <input type="tutton" value="修改">
+            </div>
+            <div>
+                <span>内容3</span>
+                <input type="tutton" value="修改">
+            </div>
+            <div>
+                <span>内容4</span>
+                <input type="tutton" value="修改">
+            </div>
+        </li>
+        <li>
+            <h3>好友</h3>
+            <div>
+                <span>内容1</span>
+                <input type="tutton" value="修改">
+            </div>
+            <div>
+                <span>内容2</span>
+                <input type="tutton" value="修改">
+            </div>
+            <div>
+                <span>内容3</span>
+                <input type="tutton" value="修改">
+            </div>
+            <div>
+                <span>内容4</span>
+                <input type="tutton" value="修改">
+            </div>
+        </li>
+    </ul>
+    <script>
+        let ul = document.getElementsByTagName("ul")[0]
+        let head = ul.getElementsByTagName('h3')
+        let lis = ul.getElementsByTagName('li')
+        let spans = ul.getElementsByTagName('span')
+        let btns = ul.getElementsByTagName('input')
+        let lastIndex = -1
+        // 用循环实现
+        /* for (let i = 0; i < head.length; i++) {
+            head[i].mark = false;
+            head[i].onclick = function () {
+                if (head[i].mark) {
+                    lis[i].classList = ''
+                } else {
+                    for (let j = 0; j < lis.length; j++) {
+                        lis[j].className = ''
+                        head[j].mark = false
+                    }
+                    lis[i].className = 'show';
+                }
+                head[i].mark = !head[i].mark; 
+            }
+
+
+        }  */
+
+        // 不用循环实现
+        for (let i = 0; i < head.length; i++) {
+            head[i].onclick = function () {
+                if(lastIndex !== -1){
+                    lis[lastIndex].className = ''
+                    if(lastIndex === i){
+                        lastIndex = -1
+                        return
+                    }
+                }
+                lis[i].className = 'show'
+                lastIndex = i;
+            }
+
+
+        } 
+    </script>
+</body>
+
+</html>

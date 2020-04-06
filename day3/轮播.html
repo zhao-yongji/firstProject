@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {}
+
+        .content {
+            width: 450px;
+            height: 280px;
+            background-color: red;
+            margin: 200px auto;
+            position: relative;
+        }
+        .content .right{
+            position: absolute;
+            width: 30px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #fff;
+            top: 50%;
+            margin-top: -15px;
+        }
+        .content .left{
+            position: absolute;
+            width: 30px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #fff;
+            top: 50%;
+            right: 0;
+            margin-top: -15px;
+        }
+        .content .top {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            background-color: #ddd;
+        }
+
+        .content .top span {
+            padding: 10px 15px;
+            margin: 20px;
+            background-color: forestgreen;
+        }
+
+        .content .top span.show {
+            background-color: yellow;
+            color: deeppink;
+        }
+
+        .content ul {
+            height: 200px;
+            background-color: deepskyblue;
+            list-style: none;
+        }
+
+        .content ul li {
+            display: none;
+            width: 100%;
+            text-align: center;
+            height: 100%;
+            font-size: 50px;
+            font-weight: bold;
+            color: #fff;
+        }
+        li:first-child{
+            background-color: antiquewhite;
+        }
+        li:last-child{
+            background-color: aqua;
+        }
+        li:nth-child(2){
+            background-color: blueviolet;
+        }
+        li:nth-child(3){
+            background-color: coral;
+        }
+        li:nth-child(4){
+            background-color: teal;
+        }
+        li:nth-child(5){
+            background-color: orchid;
+        }
+
+        .content ul li::before {
+            display: inline-block;
+            content: "";
+            vertical-align: middle;
+            height: 100%;
+        }
+
+        .content ul li.show {
+            display: block;
+        }
+        .content p{
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="top">
+            <span class="show">单边轮播</span>
+            <span>循环轮播</span>
+        </div>
+        <ul>
+            <li class="show">一</li>
+            <li>二</li>
+            <li>三</li>
+            <li>四</li>
+            <li>五</li>
+            <li>六</li>
+        </ul>
+        <p id="contents">亚索</p>
+        <p class="right">&lt;</p>
+        <p class="left">&gt;</p>
+    </div>
+    <script>
+        var spans = document.getElementsByTagName('span')
+        var lis = document.getElementsByTagName('li')
+        var right = document.getElementsByClassName('right')[0]
+        var left = document.getElementsByClassName('left')[0]
+        var bottom =document.getElementById('contents')
+        var arrs = ["亚索","寒冰","蛮王","金克斯","盖伦","德邦"]
+        var index = 0;
+        spans.idx = 0
+        for(let i=0;i<spans.length;i++){
+            spans[i].onclick = function(){  
+                spans[spans.idx].className = ''
+                spans.idx = i
+                spans[spans.idx].className = 'show'
+            }
+        }
+        left.onclick = function(){
+            lis[index].className = ''
+            index++
+            if(index == lis.length){
+                index = spans.idx==1 ? 0 : lis.length - 1
+            }
+            lis[index].className = 'show'
+            bottom.innerHTML = arrs[index] 
+        }
+        right.onclick = function(){
+            lis[index].className = ''
+            index--
+            if(index == -1){
+                index = spans.idx==0 ? 0  : lis.length - 1
+            }
+            console.log(index)
+            lis[index].className = 'show'
+            bottom.innerHTML = arrs[index] 
+        }
+    </script>
+</body>
+
+</html>

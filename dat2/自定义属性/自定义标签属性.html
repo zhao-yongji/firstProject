@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" fengyu="abc"></div>
+    <script>
+        let arr= []
+        let obj ={}
+        function fn1(){
+
+        }
+        arr.fn = 123
+        obj.fn = 123
+        fn1.fn = 123
+        console.log(arr.fn,obj.fn,fn1.fn)
+
+        // 对象访问带引号和不带引号的区别
+        // 取值带点，后面识别为属性名，带中括号识别为变量
+        let obj1 = {
+            a :1,
+            b :2
+        }
+        let a = "b"
+        console.log(obj1.a)   //1
+        console.log(obj1[a])  //2 
+        //console.log(obj[b])   报错
+
+
+        let box = document.getElementById("box")
+        //自定义属性
+        box.fn = 123
+        console.log(box.fn)
+        //自定义标签属性的访问方式
+        box.setAttribute("fengyu",456)
+        console.log(box.getAttribute("fengyu"))
+        box.removeAttribute("fengyu")
+
+        //函数里只能有一个return,遇到return就停止运行，并且把return后面的值返回出来
+    </script>
+</body>
+</html>
