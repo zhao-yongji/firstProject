@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>01</div>
+    <div>02</div>
+    <div>03 </div>
+    <div>04</div>
+    <div>05</div>
+    <div>06</div>
+    <div>07</div>
+    <div>08</div>
+    <div>09</div>
+    <div>10</div>
+    <script>
+        // 作用域：变量生效的环境（区域）
+
+    /* 
+        es5 :
+            全局作用域
+            函数作用域
+        没有声明就赋值的变量会泄露，成为顶层/全局window对象的属性
+        var声明的全局变量会污染顶层对象的属性环境
+        
+        es6 :
+            块作用域 (所有带{}的都是一个独立的作用域（块作用域）只能往上找，不能问兄弟 要)  
+
+    */ 
+    let div = document.getElementsByTagName("div")
+
+    for(var i=0;i<div.length;i++){
+        div[i].idx = i
+        div[i].onclick = function(){
+            this.style.backgroundColor = "red"
+            console.log(this.idx)
+        }
+    }
+    c = 30
+    var a = 12
+    let b = 14
+    let fn = function(){
+
+    }
+    function fn1(){
+
+    }
+
+    </script>
+    <script>
+        console.log(a)
+        console.log(window)
+        console.log(b)
+        console.log(c)
+    </script>
+
+</body>
+</html>
