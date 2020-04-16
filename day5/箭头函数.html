@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 箭头函数没有关键字this,arguments,他的this是固化的
+        // 箭头函数不能修改this指向
+         let add1 = function(n){
+             return n+1
+         }
+         add1(2)
+         let add2 = (n) => n+2
+         add2(3)
+         let fn = () =>{
+             console.log(this)
+         }
+         // 函数的rest 参数,是一个数组必须只出现1次，并且处在最后一个
+         let fn3 = function(...a){
+            console.log(a)
+         } 
+         fn3(1, 2, 3);
+         // 函数的name和length属性，length返回形参的个数，不包括带默认值的形参和rest参数
+
+
+    </script>
+</body>
+</html>

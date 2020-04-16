@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立即执行函数表达式</title>
+</head>
+<body>
+    <script>
+        /* let f =function(){
+            console.log('谁')
+        }()
+        f() */
+
+        // 必须写结束符的情况：（）[] 开头的
+        /* let f = function(){
+            console.log("f")
+        }
+        (function(){
+            console.log('2')
+        }) */
+
+
+        // 作用在于立即执行，不污染全局
+        (function(){
+            console.log('2')
+        })()
+
+        // es6
+        {
+            let a = 2
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 函数作用域： 在什么地方不是看函数在哪里【调用】，而是看函数在哪里【定义】
+        /*let a = 3
+        function fn(){
+            alert(a)
+        }
+        function fn2(){
+            let a = 2
+            fn();
+        }
+        fn2() */ 
+        let a = 3
+        function fn(a){
+            alert(a)
+        }
+        function fn2(){
+            let a = 2
+            fn(a);
+        }
+        fn2()
+    </script>
+</body>
+</html>

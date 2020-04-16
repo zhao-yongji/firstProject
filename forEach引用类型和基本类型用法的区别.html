@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach的用法</title>
+</head>
+<body>
+    <script>
+        //基本类型不改变原数组
+        var arrNumber = [1,33,44]
+        arrNumber.forEach(item =>{
+            item = item * 3
+        })
+        console.log(arrNumber);
+
+        //基本类型改变原数组的方法
+        var arrNumber1 = [1,33,44]
+        arrNumber1.forEach((item,index,arr) =>{
+            if(item>1){
+                arr[index] = item * 2
+            }
+        })
+
+        // 引用类型
+        var objectArr = [
+            {quantity:30,category:'牛'},
+            {quantity:27,category:'猪'},
+            {quantity:23,category:'羊'},
+            {quantity:123,category:'猴'}
+        ]
+        objectArr.forEach(item =>{
+            if(item.category==='牛'){
+                item.quantity = 123
+            }
+        })
+        console.log(objectArr)
+        
+        // 引用类型 -> 改变整个单次循环的item不行
+        var objectArr1 = [
+            {quantity:30,category:'牛'},
+            {quantity:27,category:'猪'},
+            {quantity:23,category:'羊'},
+            {quantity:123,category:'猴'}
+        ]
+        objectArr1.forEach(item =>{
+            if(item.category==='牛'){
+                item={
+                    category:'lv',
+                    quantity: 77
+                }
+            }
+        })
+        console.log(objectArr1)
+
+        //改变上述方法
+        var objectArr2 = [
+            {quantity:30,category:'牛'},
+            {quantity:27,category:'猪'},
+            {quantity:23,category:'羊'},
+            {quantity:123,category:'猴'}
+        ]
+        objectArr2.forEach((item,index,arr) =>{
+            if(item.category==='牛'){
+                arr[index]={
+                    quantity:'lv',
+                    category: 77
+                }
+            }
+        })
+        console.log(objectArr2)
+    </script>
+</body>
+</html>
