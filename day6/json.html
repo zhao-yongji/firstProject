@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Object.is() 判断两个值是否相等
+        console.log(isNaN(NaN))
+        console.log(isNaN('abcd'))
+        console.log(Object.is(NaN, NaN))     
+
+        // json   javascript对象的字符串表示法
+        // json 对象的字符串表示法h
+        let obj = {
+            b: 2,
+            a: 1,
+            c: 3
+        }
+        /* for(var key in obj){
+            console.log(obj.key)
+        } */
+        for (var key in obj) {
+            console.log(obj[key])
+        }
+
+    </script>
+</body>
