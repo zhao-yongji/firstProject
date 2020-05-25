@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            面向对象：面向对象编程思维
+            特征
+                1.封装性
+                2.继承
+                3.多态:根据参数的不同做出不同的反馈
+         */
+
+         /* 
+            new 关键字执行与普通函数执行的区别
+                0.new执行的函数，函数内部默认生成一个对象
+                1.函数内部this指向不同，指向new生成的这个对象；
+                2.new执行函数生成的这个对象，是函数的默认返回值
+               
+         
+         
+          */
+
+        //  造人
+        // 共性 个性
+        // 生产工厂  ---》构造函数/类
+         function Person(opt) {
+            // 个性 私有属性
+            //let obj = {}
+            this.name = opt.name
+            this.age = opt.age
+            this.length = opt.length
+            //return obj
+         }
+         //共性 公有属性
+         Person.prototype = {
+             eat(value){alert(value)},
+             playGage(){}
+         }
+
+         // 构造函数的实例化
+         const p1 =new Person({name:'大帅逼',age:18,length:18})
+         const p2 =new Person({name:'帅逼',age:30,length:5})
+         p1.eat('饭')
+    </script>
+</body>
+</html>

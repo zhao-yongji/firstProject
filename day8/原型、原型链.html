@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*  
+            js是一门基于原型的语言
+            原型：本质是一个json格式的对象
+            对象是被这个对象对应的类实例出来的，那么，原型也是个对象
+            原型链
+         */
+        //   继承 原型
+        // 私有属性的继承 是模仿一个相似的
+        // 原型链的继承 同一个
+        // 不能遍历的属性在控制台中的颜色是浅色的
+        function Person() {
+
+        }
+        Person.prototype.add = function (){}
+        const p1 = new Person('陈永基')
+        console.log(p1) 
+        // 某个对象下面是否存在某个属性，他会查找原型，性能差
+        console.log('name' in p1)
+    </script>
+</body>
+</html>
